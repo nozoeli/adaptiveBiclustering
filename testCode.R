@@ -8,9 +8,9 @@ m <- 170
 n <- 140
 B <- 30
 crit <- sqrt(max(log(M)/n, log(N)/m, (log(M) + log(N))/(m + n)))
-mu <- (2 + (1:30) * 0.1) * crit
+mu <- (1 + (1:30) * 0.1) * crit
 
-#-------compare within the two algorithms--------------------
+#-------Simulation Main--------------------
 errada <- matrix(nrow = length(mu), ncol = B)
 errgss <- matrix(nrow = length(mu), ncol = B)
 for (i in 1 : length(mu)){

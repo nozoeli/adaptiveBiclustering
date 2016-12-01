@@ -8,9 +8,9 @@ m <- 70
 n <- 250
 B <- 30
 crit <- sqrt(max(log(M)/n, log(N)/m, (log(M) + log(N))/(m + n)))
-mu <- (2 + (1:30) * 0.1) * crit
+mu <- (1 + (1 : 30) * 0.1) * crit
 
-#-------compare with the original Shabalin algorithm--------------------
+#-------Simulation main--------------------
 errada <- matrix(nrow = length(mu), ncol = B)
 errgss <- matrix(nrow = length(mu), ncol = B)
 for (i in 1 : length(mu)){
@@ -23,6 +23,6 @@ for (i in 1 : length(mu)){
   }
 }
 
-save(errada, file = 'result2.Rdata')
+save(errada, errgss, file = 'result2.Rdata')
 
 

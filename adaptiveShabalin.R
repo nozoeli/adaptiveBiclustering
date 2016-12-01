@@ -52,8 +52,8 @@ largestAdaptiveShabalin <- function(X, m, n, iter = 50){
     llh[i] <- theta^2 / (length(result$Rows) * length(result$Cols))
     base <- base + (llh[i] - base) * (llh[i] > base)
   }
-  final <- sollist[which(llh == base)]
-  return(list('Rows' = final[[1]]$Rows, 'Cols' = final[[1]]$Cols))
+  final <- sollist[[min(which(llh == base))]] # in case there are ties in the iteration
+  return(list('Rows' = final$Rows, 'Cols' = final$Cols))
 }
 
 #---------------Comparison to svd method-------------------
