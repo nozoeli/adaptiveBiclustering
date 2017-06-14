@@ -1,5 +1,5 @@
 # adaptiveBiclustering
-R codes for paper 'A Likelihood Method for Submatrix Localization'
+R codes for paper 'A multiscale scan statistic for adaptive submatrix localization'
 
 'shabalin.R' The code for Algorithm 1 (LAS algorithm) in the paper.
 
