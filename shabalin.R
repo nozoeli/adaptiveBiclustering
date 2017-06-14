@@ -11,9 +11,9 @@ shabalin = function(X, m, n, cInd=NULL) {
      	cInd = sort(cSum, d=TRUE, ind=TRUE)$ix[1:n] 		
 	  	}
   	repeat {
-    	rSum = X[,cInd] %*% rep(1,n)
+    	rSum = as.matrix(X[,cInd]) %*% rep(1,n)
     	rInd = sort(rSum, d=TRUE, ind=TRUE)$ix[1:m]
-    	cSum = rep(1,m) %*% X[rInd,]
+    	cSum = t(as.matrix(rep(1,m))) %*% X[rInd,]
     	cIndNew = sort(cSum, d=TRUE, ind=TRUE)$ix[1:n]
     	if (identical(cIndNew, cInd)) break 
     	cInd = cIndNew

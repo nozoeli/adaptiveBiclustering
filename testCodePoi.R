@@ -19,7 +19,7 @@ errspe <- matrix(nrow = length(mu), ncol = B)
 errlmg <- matrix(nrow = length(mu), ncol = B)
 for (i in 1 : length(mu)){
   for (j in 1 : B){
-    data <- normalMatrix(M, N, m, n, mu[i])
+    data <- poissonMatrix(M, N, m, n, mu[i])
     y <- largestAdaptiveShabalin(data, 5, 5)
     z <- goldenSecSearch(data, 500, 500)
     w <- svdBicluster(data)
@@ -31,6 +31,6 @@ for (i in 1 : length(mu)){
   }
 }
 
-save(errada, errgss, errspe, errlmg, file = 'result.Rdata')
+save(errada, errgss, errspe, errlmg, file = 'result3.Rdata')
 
 

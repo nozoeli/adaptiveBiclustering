@@ -2,24 +2,24 @@ source('adaptiveShabalin.R')
 source('randomMatrix.R')
 source('gss.R')
 #--------Initialization---------------
-M <- 1000
-N <- 1200
-m <- 170
-n <- 140
+M <- 4000
+N <- 500
+m <- 70
+n <- 250
 B <- 30
 rcheck <- c(rep(1, m), rep(0, M - m))
 ccheck <- c(rep(1, n), rep(0, N - n))
 crit <- sqrt(max(log(M)/n, log(N)/m, (log(M) + log(N))/(m + n)))
-mu <- (1 + (1:30) * 0.1) * crit
+mu <- (1 + (1 : 30) * 0.1) * crit
 
-#-------Simulation Main--------------------
+#-------Simulation main--------------------
 errada <- matrix(nrow = length(mu), ncol = B)
 errgss <- matrix(nrow = length(mu), ncol = B)
 errspe <- matrix(nrow = length(mu), ncol = B)
 errlmg <- matrix(nrow = length(mu), ncol = B)
 for (i in 1 : length(mu)){
   for (j in 1 : B){
-    data <- normalMatrix(M, N, m, n, mu[i])
+    data <- poissonMatrix(M, N, m, n, mu[i])
     y <- largestAdaptiveShabalin(data, 5, 5)
     z <- goldenSecSearch(data, 500, 500)
     w <- svdBicluster(data)
@@ -31,6 +31,6 @@ for (i in 1 : length(mu)){
   }
 }
 
-save(errada, errgss, errspe, errlmg, file = 'result.Rdata')
+save(errada, errgss, errspe, errlmg, file = 'result4.Rdata')
 
 

@@ -1,4 +1,5 @@
 source('shabalin.R')
+source('adaptiveShabalin.R')
 
 shabalinSum <- function(X, m, n, cInd = NULL){  # function that returns the normalized mean by LAS algorithm
   result <- shabalin(X, m, n, cInd)
@@ -22,7 +23,7 @@ goldenSecSearch <- function(X, msup, nsup){  # main golden section search algori
     n[2] <- floor(nmin + (nmax - nmin) * phi)
     for (i in 1:2){
       for (j in 1:2){
-        fmx[i, j] <- shabalinSum(X, m[i], n[j])$nmean  # calculate all the combinations and its corresponding function value
+        fmx[i, j] <- shabalinSum(X, m[i], n[j])$nmean  - lambda(m[i], n[j], M, N)# calculate all the combinations and its corresponding function value
       }
     }
     indi <- which(fmx == max(fmx))[1]  # [1] is for the case when there are multiple maximals, especially when one dimension is degenerated to 3
