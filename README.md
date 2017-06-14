@@ -9,6 +9,10 @@ R codes for paper 'A Likelihood Method for Submatrix Localization'
 
 'gss.R' The code for Algorithm 3 (Golden Section Search) in the paper
 
-'testCode.R' 'testCode2.R' Test codes for generating the simulation data.
+'testCode.R' and files with similar names are codes for generating the simulation data.
 
-‘evaluation.R' Code for generating pictures in the paper. Package 'ggplot2' is used.
+‘evaluation.R' and files with similar names are for generating pictures in the paper. Package 'ggplot2' is used.
+
+'gssCheck.R','gssEval.R' simulates and generates the graph for unimodal checking part of the simulation.
+
+'timeEval.R' is the code for evaluating the running time for each algorithm.
