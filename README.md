@@ -1,5 +1,5 @@
 # adaptiveBiclustering
-R codes for paper 'A multiscale scan statistic for adaptive submatrix localization'
+R codes for paper 'A Multiscale Scan Statistic for Adaptive Submatrix Localization', accepted for KDD 2019.
 
 'shabalin.R' The code for Algorithm 1 (LAS algorithm) in the paper.
 
